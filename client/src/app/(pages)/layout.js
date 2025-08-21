@@ -17,9 +17,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// app/layout.tsx
 export const metadata = {
-  title: "Joyvinco",
-  description: "Joyvinco your one in one detergent dealer solution for all your cleaning needs.",
+  title: "Joyvinco Ventures - Your Trusted Detergent Dealer",
+  description: "Joyvinco is your one-stop solution for detergents and cleaning products across Nigeria, Ghana, Côte d'Ivoire, and more.",
+  keywords: "detergent, cleaning products, distributor, wholesale, toothpaste, Joyvinco, Nigeria, Ghana, Côte d'Ivoire",
+  openGraph: {
+    title: "Joyvinco - Detergent & Cleaning Products Distributor",
+    description: "Trusted source for detergents, soaps, toothpaste and more. Delivering across Nigeria, Ghana, Côte d'Ivoire.",
+    url: "https://joyvinco.com.ng",
+    siteName: "Joyvinco Ventures",
+    images: [
+      {
+        url: "https://joyvinco.com.ng/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Joyvinco Cleaning Products",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
 };
 
 const CookieConsentWrapper = dynamic(
@@ -32,13 +50,13 @@ export default function PageLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G-XG3M5YQVQH" />
         <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-YOUR_MEASUREMENT_ID');
+            gtag('config', 'G-XG3M5YQVQH');
           `}
         </Script>
       </head>
@@ -74,6 +92,7 @@ export default function PageLayout({ children }) {
               zIndex: 99999, // So it stays above navbar etc
             },
           }}
+          
         />
 
         <CookieConsentWrapper/>

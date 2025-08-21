@@ -1,0 +1,84 @@
+const nodemailer = require('nodemailer');
+const ejs = require('ejs');
+const path = require('path');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+// --- Setup email transporter (reusable) ---
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
+
+/**
+ * Sends the initial order confirmation email to the customer and a notification to all admins.
+ * @param {object} order - The newly created order object.
+ * @param {object} cartItems - The items that were in the cart.
+ */
+const sendNewOrderEmails = async (order, cartItems) => {
+    try {
+        const customer = await prisma.user.findUnique({ where: { id: order.userId } });
+        if (!customer) throw new Error('Customer not found for order email.');
+
+        // 1. Send confirmation to the Customer
+        const customerTemplatePath = path.resolve(process.cwd(), 'src/views/customer-order-confirmation.ejs');
+        const customerHtml = await ejs.renderFile(customerTemplatePath, { order, customer, cartItems });
+        
+        await transporter.sendMail({
+            from: `"Joyvinco " <${process.env.EMAIL_USER}>`,
+            to: customer.email,
+            subject: `Your Joyvinco Order is Confirmed! #${order.id.slice(-6)}`,
+            html: customerHtml,
+        });
+
+        // 2. Notify all Admins
+        const admins = await prisma.user.findMany({ where: { role: 'ADMIN' } });
+        const adminEmails = admins.map(admin => admin.email);
+
+        if (adminEmails.length > 0) {
+            const adminTemplatePath = path.resolve(process.cwd(), 'src/views/admin-new-order.ejs');
+            const adminHtml = await ejs.renderFile(adminTemplatePath, { order, customer, cartItems });
+
+            await transporter.sendMail({
+                from: `"Joyvinco" <${process.env.EMAIL_USER}>`,
+                to: adminEmails.join(','),
+                subject: `[ADMIN] New Order Received! #${order.id.slice(-6)}`,
+                html: adminHtml,
+            });
+        }
+    } catch (error) {
+        // Log the error but don't crash the main application flow
+        console.error("--- Failed to send new order notification emails ---", error);
+    }
+};
+
+/**
+ * Sends a shipping confirmation email to the customer.
+ * @param {object} order - The order object that has been updated to "SHIPPED".
+ */
+const sendShippingConfirmationEmail = async (order) => {
+    try {
+        const customer = await prisma.user.findUnique({ where: { id: order.userId } });
+        if (!customer) throw new Error('Customer not found for shipping email.');
+
+        const templatePath = path.resolve(process.cwd(), 'src/views/customer-shipped-notification.ejs');
+        const emailHtml = await ejs.renderFile(templatePath, { order, customer });
+
+        await transporter.sendMail({
+            from: `"Joyvinco" <${process.env.EMAIL_USER}>`,
+            to: customer.email,
+            subject: `Your Joyvinco Order Has Shipped! #${order.id.slice(-6)}`,
+            html: emailHtml,
+        });
+    } catch (error) {
+        console.error("--- Failed to send SHIPPED notification email ---", error);
+    }
+};
+
+module.exports = {
+    sendNewOrderEmails,
+    sendShippingConfirmationEmail,
+};

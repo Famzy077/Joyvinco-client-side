@@ -12,22 +12,16 @@ import { FaSpinner } from 'react-icons/fa';
 
 const queryClient = new QueryClient();
 
-// A dedicated component for all providers.
-const AllProviders = ({ children }) => {
-  return (
-    // 1. QueryClientProvider is on the outside, providing the "umbrella".
-    <QueryClientProvider client={queryClient}>
-      <ReduxProvider store={store}>
-        {/* 2. WishlistProvider is now INSIDE, so it can use useQuery. */}
-        <WishlistProvider>
-          <CartProvider>
-          {children}
-          </CartProvider>
-        </WishlistProvider>
-      </ReduxProvider>
-    </QueryClientProvider>
-  );
-};
+const AllProviders = ({ children }) => (
+  <QueryClientProvider client={queryClient}>
+    <ReduxProvider store={store}>
+      <WishlistProvider>
+        <CartProvider>{children}</CartProvider>
+      </WishlistProvider>
+    </ReduxProvider>
+  </QueryClientProvider>
+);
+
 const PageProvider = ({ children }) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -39,13 +33,15 @@ const PageProvider = ({ children }) => {
       setMinDelayPassed(true);
     }, 3000);
 
-    const authToken = localStorage.getItem('authToken');
+    const authToken = localStorage.getItem("authToken");
 
-    if (pathname === '/') {
-      router.replace('/home');
+    if (pathname === "/") {
+      router.replace("/home");
     } else {
-      const protectedRoutes = ['/wishlist', '/account', '/admin', '/products'];
-      const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
+      const protectedRoutes = ["/wishlist", "/account", "/admin", "/products"];
+      const isProtectedRoute = protectedRoutes.some((route) =>
+        pathname.startsWith(route)
+      );
 
       if (!authToken && isProtectedRoute) {
         router.replace(`/login?redirect=${pathname}`);
@@ -57,26 +53,33 @@ const PageProvider = ({ children }) => {
     return () => clearTimeout(minDelayTimer);
   }, [router, pathname]);
 
+  // Track route changes using pathname (App Router way)
+  useEffect(() => {
+    if (typeof window.gtag !== "undefined") {
+      window.gtag("config", "G-XG3M5YQVQH", {
+        page_path: pathname,
+      });
+    }
+  }, [pathname]);
+
   return (
     <>
       {(!isAuthorized || !minDelayPassed) ? (
-        <div className='flex flex-col items-center justify-center min-h-[90vh]'>
-          <Image src={logo} className='h-[100px] max-sm:w-[50%] w-[230px]' alt="Loading Logo" />
+        <div className="flex flex-col items-center justify-center min-h-[90vh]">
+          <Image
+            src={logo}
+            className="h-[100px] max-sm:w-[50%] w-[230px]"
+            alt="Loading Logo"
+          />
           <FaSpinner className="animate-spin text-green-500" size={40} />
         </div>
       ) : (
         <AllProviders>
           {children}
-          <a
-            href="https://analytics.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-         </a>
         </AllProviders>
       )}
     </>
   );
-}
+};
+
 export default PageProvider;
