@@ -78,7 +78,31 @@ const sendShippingConfirmationEmail = async (order) => {
     }
 };
 
+/**
+ * Sends a delivery confirmation email to the customer.
+ * @param {object} order - The order object that has been updated to "DELIVERED".
+ */
+const sendDeliveryConfirmationEmail = async (order) => {
+    try {
+        const customer = await prisma.user.findUnique({ where: { id: order.userId } });
+        if (!customer) throw new Error('Customer not found for delivery email.');
+
+        const templatePath = path.resolve(process.cwd(), 'src/views/customer-delivered-notification.ejs');
+        const emailHtml = await ejs.renderFile(templatePath, { order, customer });
+
+        await transporter.sendMail({
+            from: `"Favorite Plug" <${process.env.EMAIL_USER}>`,
+            to: customer.email,
+            subject: `Your Favorite Plug Order #${order.id.slice(-6)} Has Been Delivered!`,
+            html: emailHtml,
+        });
+    } catch (error) {
+        console.error("--- Failed to send DELIVERED notification email ---", error);
+    }
+};
+
 module.exports = {
     sendNewOrderEmails,
     sendShippingConfirmationEmail,
+    sendDeliveryConfirmationEmail,
 };
