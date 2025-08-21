@@ -56,14 +56,14 @@ const ProductCard = ({ product }) => {
 };
 
 // --- Main Component for the Latops Category Section (Now with Slider) ---
-export const SmartwatchCarousel = () => {
+export const VivaSanitizer = () => {
   const { data: allProducts, isLoading, error } = useQuery({
     queryKey: ['publicProducts'],
     queryFn: fetchAllProducts,
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "Smartwatches" 
+    (product) => product.category === "vivaSanitizer" 
   );
   
 
@@ -115,7 +115,7 @@ export const SmartwatchCarousel = () => {
   if (error) {
     return (
       <div className="text-center py-10">
-        <p className="text-red-500">Failed to load mobile products.</p>
+        <p className="text-red-500">Failed to load Viva Sanitizer products.</p>
       </div>
     );
   }
@@ -133,7 +133,7 @@ export const SmartwatchCarousel = () => {
         </Slider>
       ) : (
         <div className="text-center py-10 text-gray-500">
-          <p>No Smart Watch found at the moment.</p>
+          <p>No Viva Sanitizer found at the moment.</p>
         </div>
       )}
     </div>

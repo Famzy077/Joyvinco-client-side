@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '/public/Images/logo.png';
+import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import * as yup from 'yup';
 

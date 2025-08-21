@@ -124,8 +124,8 @@ const Categories = () => {
                 onClick={() => handleFilter(cat)}
                 className={`w-full text-sm max-sm:text-[0.7rem] md:text-base py-2 px-1 rounded-md transition-colors ${
                   category.toLowerCase() === cat.toLowerCase()
-                    ? 'bg-blue-600 shadow-md font-bold text-white'
-                    : 'bg-white hover:bg-blue-100'
+                    ? 'bg-green-600 shadow-md font-bold text-white'
+                    : 'bg-white hover:bg-green-100'
                 }`}
               >
                 {cat}
@@ -154,7 +154,7 @@ const Categories = () => {
                 key={i + 1}
                 onClick={() => handlePageChange(i + 1)}
                 className={`px-3 py-1 rounded text-sm font-medium ${
-                  page === i + 1 ? 'bg-blue-600 text-white' : 'bg-white border'
+                  page === i + 1 ? 'bg-green-600 text-white' : 'bg-white border'
                 }`}
               >
                 {i + 1}

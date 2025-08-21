@@ -144,7 +144,7 @@ const VerifyEmail = () => {
         <p className="text-gray-600 mb-6">Please provide an email address to verify</p>
         <button
           onClick={() => router.push('/login')}
-          className="bg-green-500 text-white py-2 px-6 rounded-md shadow-md hover:bg-blue-600 transition cursor-pointer"
+          className="bg-green-500 text-white py-2 px-6 rounded-md shadow-md hover:bg-green-600 transition cursor-pointer"
         >
           Go Back
         </button>

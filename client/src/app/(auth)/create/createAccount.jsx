@@ -242,7 +242,7 @@ const CreateAccount = () => {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-blue-600 transition ${
+          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-green-600 transition ${
             loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
           }`}
         >
@@ -289,7 +289,7 @@ const CreateAccount = () => {
                   setIsEditingEmail(false);
                   router.push('/login')
                 }}
-                className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-blue-600"
+                className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
               >
                 Save
               </button>

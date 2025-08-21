@@ -1,16 +1,12 @@
 'use client';
 
-import products from '../.././Data/ProductData.json'
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Link from 'next/link';
 import { FaSpinner } from 'react-icons/fa';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import ProductCard from '@/app/Components/ProductsCard'
 import { AddToCartButton } from './cart/AddToCartButton';
+
 // --- Data Fetching Function ---
 const API_URL = "https://joyvinco.onrender.com";
 
@@ -20,13 +16,13 @@ const fetchAllProducts = async () => {
 };
 
 // --- Reusable Product Card Component (No changes needed) ---
-const ProductCardItems = ({ product }) => {
+const ProductCard = ({ product }) => {
   const calculateDiscount = (price, oldPrice) => {
     if (!oldPrice || oldPrice <= price) return null;
     return Math.round(((oldPrice - price) / oldPrice) * 100);
   };
   const discountPercentage = calculateDiscount(product.price, product.oldPrice);
-  
+
   return (
     <div className="group relative border rounded-lg overflow-hidden border-gray-300 bg-white hover:shadow-xl transition-shadow duration-300">
       <Link href={`/products/${product.id}`}>
@@ -43,8 +39,8 @@ const ProductCardItems = ({ product }) => {
           -{discountPercentage}%
         </div>
       )}
-      <div className="p-4 pb-2 bg-gray-200">
-        <h3 className="text-1.8 lg:font-semibold text-gray-800 font-medium truncate">
+      <div className="p-4 max-sm:py-0 pb-2 bg-gray-200">
+        <h3 className="text-1.8 max-sm:text-[0.9rem] lg:font-semibold text-gray-800 font-medium truncate">
           <Link href={`/products/${product.id}`}>{product.name}</Link>
         </h3>
         <div className="flex items-baseline my-0.5">
@@ -59,23 +55,23 @@ const ProductCardItems = ({ product }) => {
   );
 };
 
-// --- Main Component for the Mobile Category Section (Now with Slider) ---
-export const Accessories = () => {
+// --- Main Component for the Latops Category Section (Now with Slider) ---
+export const VivaBar = () => {
   const { data: allProducts, isLoading, error } = useQuery({
     queryKey: ['publicProducts'],
     queryFn: fetchAllProducts,
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "Accessories"
+    (product) => product.category === "VivaBar"
   );
   
-  // These are the exact slider settings you provided
+
   const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 2,
@@ -83,7 +79,7 @@ export const Accessories = () => {
     responsive: [
       {
         breakpoint: 1920, // For 32 desktops screen
-        settings: { slidesToShow: 6, slidesToScroll: 1 },
+        settings: { slidesToShow: 5, slidesToScroll: 1 },
       },
       {
         breakpoint: 1600, // For 27 desktops screen
@@ -119,44 +115,27 @@ export const Accessories = () => {
   if (error) {
     return (
       <div className="text-center py-10">
-        <p className="text-red-500">Failed to load mobile products.</p>
+        <p className="text-red-500">Failed to load Viva Bar products.</p>
       </div>
     );
   }
 
   return (
-    <div className='container mx-auto px-4 sm:px-3 lg:px-1 pb-6'>
+    <div className='container mx-auto px-4 sm:px-3 lg:px-2'>
       {/* IMPROVEMENT: Show the slider if there are ANY products, not just more than 5 */}
       {mobileProducts && mobileProducts.length > 0 ? (
         <Slider {...settings}>
           {mobileProducts.map((product) => (
             <div key={product.id} className="p-2"> {/* react-slick needs a div wrapper */}
-              <ProductCardItems product={product} />
+              <ProductCard product={product} />
             </div>
           ))}
         </Slider>
       ) : (
         <div className="text-center py-10 text-gray-500">
-          <p>No Accessories items found at the moment.</p>
+          <p>No mobile Viva Bar found at the moment.</p>
         </div>
       )}
-    </div>
-  );
-};
-
-export const AccessoriesStick = () => {
-  const accessories = products.filter((product) => product.category === "Accessories").reverse();
-
-  return (
-    <div className="flex overflow-x-auto overflow-y-hidden gap-4 p-4 w-full scrollbar-hide mb-5 max-sm:mb-2">
-      {accessories.map((product) => (
-        <div
-          key={product.id}
-          className="min-w-[10rem] flex-shrink-0"
-        >
-          <ProductCard product={product} />
-        </div>
-      ))}
     </div>
   );
 };

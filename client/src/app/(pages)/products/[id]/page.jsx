@@ -9,7 +9,7 @@ import { FaSpinner } from 'react-icons/fa';
 import { Phone } from 'lucide-react';
 import { AddToCartButton } from '@/app/Components/cart/AddToCartButton';
 import Docs from '@/app/UI/Docs';
-import bannerImage from '/public/Images/GalaxySeries.png';
+import bannerImage from '/public/assets/allIProducts.png';
 
 const API_URL = "https://joyvinco.onrender.com";
 
@@ -167,7 +167,7 @@ const ProductPage = ({ params }) => {
           <div className="relative z-10 flex items-center space-x-2">
             <p className="text-xl md:text-2xl underline"><Link href="/home">Home</Link></p>
             <span className="text-xl md:text-2xl">/</span>
-            <h1 className="text-xl md:text-2xl text-blue-400 font-bold">Shop</h1>
+            <h1 className="text-xl md:text-2xl text-green-400 font-bold">Shop</h1>
           </div>
         </div>
         <h1 className="text-2xl md:text-3xl font-bold mb-1 text-white bg-green-500 mx-auto max-w-4xl p-2 mt-5 rounded-md max-sm:rounded-none">Product Details</h1>
@@ -193,7 +193,7 @@ const ProductPage = ({ params }) => {
               </div>
               <p className='text-center text-sm font-semibold'>OR</p>
               <a href="tel:+2348123456789">
-                <button className='w-full text-lg max-sm:text-base border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-blue-600 py-2 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
+                <button className='w-full text-lg max-sm:text-base border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-green-600 py-2 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
                   <Phone size={24}/>
                   Call to order
                 </button>

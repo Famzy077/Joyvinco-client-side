@@ -35,7 +35,7 @@ export const AccountWishlist = () => {
       <div className="p-5 text-center h-[85vh] flex flex-col items-center justify-center">
         <p className="text-2xl mb-4">You have no items in your wishlist yet 💔</p>
         <Link href="/categories">
-          <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+          <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors">
             Start Exploring
           </button>
         </Link>
@@ -95,7 +95,7 @@ export const AccountWishlist = () => {
             <p className="text-xl max-sm:text-[0.9rem] font-bold text-gray-800">₦{totalPrice.toLocaleString()}</p>
           </div>
           <a href="tel:+2349132438978">
-            <button className='text-xl w-full max-sm:text-[14px] border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-blue-600 py-1.5 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
+            <button className='text-xl w-full max-sm:text-[14px] border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-green-600 py-1.5 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
               <Phone className="max-sm:text-sm" size={28}/>
               Call to order
             </button>

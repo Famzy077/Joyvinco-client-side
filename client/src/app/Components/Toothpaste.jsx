@@ -22,16 +22,13 @@ const ProductCard = ({ product }) => {
     return Math.round(((oldPrice - price) / oldPrice) * 100);
   };
   const discountPercentage = calculateDiscount(product.price, product.oldPrice);
-  const displayImage = product.images && product.images.length > 0
-  ? product.images[0].url
-  : '/Images/placeholder.png';
 
   return (
     <div className="group relative border rounded-lg overflow-hidden border-gray-300 bg-white hover:shadow-xl transition-shadow duration-300">
       <Link href={`/products/${product.id}`}>
         <div className="aspect-w-1 aspect-h-1 flex justify-center w-full overflow-hidden bg-white py-3">
           <img
-            src={displayImage}
+            src={product.image}
             alt={product.name}
             className="max-sm:h-[100px] h-[120px] object-fit object-center group-hover:opacity-80 transition-opacity"
           />
@@ -58,18 +55,18 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// --- Main Component for the Mobile Category Section (Now with Slider) ---
-export const Viva = () => {
+// --- Main Component for the Latops Category Section (Now with Slider) ---
+export const Toothpaste = () => {
   const { data: allProducts, isLoading, error } = useQuery({
     queryKey: ['publicProducts'],
     queryFn: fetchAllProducts,
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "viva"
+    (product) => product.category === "Toothpaste"
   );
   
-  // These are the exact slider settings you provided
+
   const settings = {
     dots: false,
     infinite: true,
@@ -118,16 +115,16 @@ export const Viva = () => {
   if (error) {
     return (
       <div className="text-center py-10">
-        <p className="text-red-500">Failed to load viva products.</p>
+        <p className="text-red-500">Failed to load Toothpaste products.</p>
       </div>
     );
   }
 
   return (
-    <div className='container mx-auto px-4 sm:px-0.5 lg:px-2'> 
+    <div className='container mx-auto px-4 sm:px-3 lg:px-2'>
       {/* IMPROVEMENT: Show the slider if there are ANY products, not just more than 5 */}
       {mobileProducts && mobileProducts.length > 0 ? (
-        <Slider className='px-0' {...settings}>
+        <Slider {...settings}>
           {mobileProducts.map((product) => (
             <div key={product.id} className="p-2"> {/* react-slick needs a div wrapper */}
               <ProductCard product={product} />
@@ -136,7 +133,7 @@ export const Viva = () => {
         </Slider>
       ) : (
         <div className="text-center py-10 text-gray-500">
-          <p>No mobile phones or tablets found at the moment.</p>
+          <p>No Toothpaste found at the moment.</p>
         </div>
       )}
     </div>

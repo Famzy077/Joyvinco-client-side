@@ -5,7 +5,7 @@ import Image from 'next/image';
 import logo from '/public/Images/logo.png';
 import { Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
-import * as yup from 'yup'; // ✅ yup schema
+import * as yup from 'yup';
 
 // ✅ Define validation schema
 const validationSchema = yup.object().shape({
@@ -152,7 +152,7 @@ const SignIn = () => {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-blue-600 transition ${
+          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-green-600 transition ${
             loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
           }`}
         >

@@ -26,7 +26,7 @@ const CheckoutPage = () => {
     const [fullName, setFullName] = useState('');
     const [shippingAddress, setShippingAddress] = useState('');
     const [contactPhone, setContactPhone] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('PAY_ON_DELIVERY');
+    const [paymentMethod, setPaymentMethod] = useState('PAY ON DELIVERY');
     const [isOrderPlaced, setIsOrderPlaced] = useState(false);
 
     useEffect(() => {
@@ -110,7 +110,7 @@ const CheckoutPage = () => {
                     <div className="bg-white p-6 rounded-lg shadow-md border">
                         <h2 className="text-xl font-bold mb-4">2. Payment Method</h2>
                         <div className="border-2 border-green-500 bg-blue-50 rounded-lg p-4 flex items-center gap-4">
-                            <Truck className="h-8 w-8 text-blue-600" />
+                            <Truck className="h-8 w-8 text-green-600" />
                             <div>
                                 <h3 className="font-bold text-gray-800">Pay on Delivery</h3>
                                 <p className="text-sm text-gray-600">You will pay with cash or transfer when your order arrives.</p>
@@ -123,8 +123,8 @@ const CheckoutPage = () => {
                         <h2 className="text-xl font-bold border-b pb-4 mb-4">Your Order ({itemCount} items)</h2>
                         <div className="space-y-4 max-h-64 overflow-y-auto pr-2">
                             {cart?.items?.map(item => {
-                                // --- THE FIX for the image ---
-                                const displayImage = item.product.image; // The backend now provides this directly
+
+                                const displayImage = item.product.image;
                                 
                                 return (
                                     <div key={item.id} className="flex items-center gap-4 text-sm">

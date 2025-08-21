@@ -21,10 +21,10 @@ export default function AdminDashboardPage() {
       
       <Tabs defaultValue="overview" className="w-full p-4">
         <TabsList className="grid w-full gap-3 max-sm:grid-cols-1 h-fit grid-cols-3 p-2 border border-zinc-300">
-          <TabsTrigger className={'p-6 border border-blue-600 text-blue-600'} value="overview"> <BarChart2 className="w-4 h-4" /> Overview</TabsTrigger>
-          <TabsTrigger className={'p-6 border border-blue-600 text-blue-600'} value="products"> <Boxes className="w-4 h-4" /> Manage Products</TabsTrigger>
-          <TabsTrigger className={'p-6 border border-blue-600 text-blue-600'} value="orders"> <ShoppingCart className="w-4 h-4" /> Manage Orders</TabsTrigger>
-          <TabsTrigger className={'p-6 border border-blue-600 text-blue-600'} value="users"> <Users className="w-4 h-4" /> Manage Users</TabsTrigger>
+          <TabsTrigger className={'p-6 border border-green-600 text-green-600'} value="overview"> <BarChart2 className="w-4 h-4" /> Overview</TabsTrigger>
+          <TabsTrigger className={'p-6 border border-green-600 text-green-600'} value="products"> <Boxes className="w-4 h-4" /> Manage Products</TabsTrigger>
+          <TabsTrigger className={'p-6 border border-green-600 text-green-600'} value="orders"> <ShoppingCart className="w-4 h-4" /> Manage Orders</TabsTrigger>
+          <TabsTrigger className={'p-6 border border-green-600 text-green-600'} value="users"> <Users className="w-4 h-4" /> Manage Users</TabsTrigger>
         </TabsList>
         <a href="https://analytics.google.com/" target="_blank" rel="noopener noreferrer" className="block mt-4 p-6 bg-green-100 border-green-300 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between">

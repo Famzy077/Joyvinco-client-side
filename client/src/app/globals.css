@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+*{
+  scrollbar-width: hidden;
+}
 :root {
   --primary: #22c55e;
   /* --primary: oklch(0.216 0.006 56.043); */

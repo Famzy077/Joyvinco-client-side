@@ -147,7 +147,7 @@ export const AccountDetails = () => {
                 <button
                   onClick={handleSave}
                   disabled={mutation.isLoading}
-                  className="mt-2 bg-green-500 text-white text-sm px-4 py-2 rounded-md disabled:opacity-50 self-start hover:bg-blue-600"
+                  className="mt-2 bg-green-500 text-white text-sm px-4 py-2 rounded-md disabled:opacity-50 self-start hover:bg-green-600"
                 >
                   {mutation.isLoading ? 'Saving...' : 'Save Changes'}
                 </button>
@@ -187,7 +187,7 @@ export const AccountDetails = () => {
                   <button
                     onClick={handleSave}
                     disabled={mutation.isLoading}
-                    className="mt-2 bg-green-500 text-white text-sm px-4 py-2 rounded-md disabled:opacity-50 self-start hover:bg-blue-600"
+                    className="mt-2 bg-green-500 text-white text-sm px-4 py-2 rounded-md disabled:opacity-50 self-start hover:bg-green-600"
                   >
                     {mutation.isLoading ? 'Saving...' : 'Save Address'}
                   </button>
