@@ -18,29 +18,31 @@ const transporter = nodemailer.createTransport({
  * @param {object} order - The newly created order object.
  * @param {object} cartItems - The items that were in the cart.
  */
-const sendNewOrderEmails = async (order, cartItems) => {
+const sendNewOrderEmails = async (order, cartItems, totalAmount) => {
     try {
         const customer = await prisma.user.findUnique({ where: { id: order.userId } });
         if (!customer) throw new Error('Customer not found for order email.');
 
-        // 1. Send confirmation to the Customer
+        // 2. Send confirmation to the Customer
         const customerTemplatePath = path.resolve(process.cwd(), 'src/views/customer-order-confirmation.ejs');
-        const customerHtml = await ejs.renderFile(customerTemplatePath, { order, customer, cartItems });
+        // 2. Pass totalAmount here
+        const customerHtml = await ejs.renderFile(customerTemplatePath, { order, customer, cartItems, totalAmount });
         
         await transporter.sendMail({
-            from: `"Joyvinco " <${process.env.EMAIL_USER}>`,
+            from: `"Joyvinco" <${process.env.EMAIL_USER}>`,
             to: customer.email,
             subject: `Your Joyvinco Order is Confirmed! #${order.id.slice(-6)}`,
             html: customerHtml,
         });
 
-        // 2. Notify all Admins
+        // 3. Notify all Admins
         const admins = await prisma.user.findMany({ where: { role: 'ADMIN' } });
         const adminEmails = admins.map(admin => admin.email);
 
         if (adminEmails.length > 0) {
             const adminTemplatePath = path.resolve(process.cwd(), 'src/views/admin-new-order.ejs');
-            const adminHtml = await ejs.renderFile(adminTemplatePath, { order, customer, cartItems });
+            // 3. Also pass totalAmount here
+            const adminHtml = await ejs.renderFile(adminTemplatePath, { order, customer, cartItems, totalAmount });
 
             await transporter.sendMail({
                 from: `"Joyvinco" <${process.env.EMAIL_USER}>`,
@@ -50,11 +52,9 @@ const sendNewOrderEmails = async (order, cartItems) => {
             });
         }
     } catch (error) {
-        // Log the error but don't crash the main application flow
         console.error("--- Failed to send new order notification emails ---", error);
     }
 };
-
 /**
  * Sends a shipping confirmation email to the customer.
  * @param {object} order - The order object that has been updated to "SHIPPED".

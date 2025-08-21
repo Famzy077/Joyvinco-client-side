@@ -48,7 +48,7 @@ const createOrder = async (req, res) => {
 
     // --- CLEANER EMAIL NOTIFICATION ---
     // Fire-and-forget the email sending. No need to await here.
-    sendNewOrderEmails(order, cart.items);
+    sendNewOrderEmails(order, cart.items, totalAmount);
 
     res.status(201).json({ success: true, message: "Order placed successfully!", order });
   } catch (error) {
