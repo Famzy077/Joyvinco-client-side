@@ -15,7 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import toast from 'react-hot-toast';
 import { Truck } from 'lucide-react';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 const CheckoutPage = () => {
     const router = useRouter();

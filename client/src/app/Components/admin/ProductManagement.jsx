@@ -8,7 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { ProductModal } from '../../Components/modals/ProductModal';
 import { FaSpinner } from 'react-icons/fa'; // Import a spinner for loading state
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 const fetchProducts = async () => {
   // This function now fetches products *with* their related images

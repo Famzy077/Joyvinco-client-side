@@ -99,7 +99,7 @@ const PersonalDetails = () => {
       }
 
       const response = await axios.post(
-        'https://Joyvinco-server-0.onrender.com/api/user-details',
+        'https://joyvinco.onrender.com/api/user-details',
         payload,
         {
           headers: {

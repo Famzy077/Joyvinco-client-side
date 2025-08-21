@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useAuthAction } from './useAuthAction'; // Assuming this path is correct
 import toast from 'react-hot-toast';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 const CartContext = createContext();
 

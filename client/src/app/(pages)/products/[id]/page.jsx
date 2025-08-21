@@ -11,7 +11,7 @@ import { AddToCartButton } from '@/app/Components/cart/AddToCartButton';
 import Docs from '@/app/UI/Docs';
 import bannerImage from '/public/Images/GalaxySeries.png';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 // Fetches a SINGLE product by its ID (including its images)
 const fetchProductById = async (productId) => {

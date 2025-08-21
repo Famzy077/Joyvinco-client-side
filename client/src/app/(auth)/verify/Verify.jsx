@@ -62,7 +62,7 @@ const VerifyEmail = () => {
       setLoading(true);
       setError('');
 
-      const response = await fetch('https://Joyvinco-server-0.onrender.com/api/auth/send-verification-code', {
+      const response = await fetch('https://joyvinco.onrender.com/api/auth/send-verification-code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const VerifyEmail = () => {
       setLoading(true);
       setError('');
 
-      const response = await fetch('https://Joyvinco-server-0.onrender.com/api/auth/verify-code', {
+      const response = await fetch('https://joyvinco.onrender.com/api/auth/verify-code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const VerifyEmail = () => {
         localStorage.setItem('verifiedEmail', email);
 
         const checkResponse = await fetch(
-          `https://Joyvinco-server-0.onrender.com/api/auth/check-email?email=${encodeURIComponent(email)}`
+          `https://joyvinco.onrender.com/api/auth/check-email?email=${encodeURIComponent(email)}`
         );
         const checkData = await checkResponse.json();
 

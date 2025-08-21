@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FaSpinner, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 // --- FORGOT PASSWORD PAGE COMPONENT ---
 const ForgotPasswordPage = () => {

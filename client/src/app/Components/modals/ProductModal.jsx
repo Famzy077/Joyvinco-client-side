@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { XIcon } from 'lucide-react';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 export const ProductModal = ({ productToEdit = null, isOpen, onClose }) => {
   const isEditMode = !!productToEdit;

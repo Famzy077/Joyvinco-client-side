@@ -7,7 +7,7 @@ import { FaSpinner } from 'react-icons/fa';
 
 const fetchDashboardStats = async () => {
   const token = localStorage.getItem('authToken');
-  const url = "https://Joyvinco-server-0.onrender.com";
+  const url = "https://joyvinco.onrender.com";
   const res = await axios.get(`${url}/api/admin/stats`, {
     headers: { Authorization: `Bearer ${token}` },
   });

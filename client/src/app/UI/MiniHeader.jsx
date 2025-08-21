@@ -11,7 +11,7 @@ import axios from 'axios';
 import NoItemImage from '/public/Images/noProduct.png';
 import { useCart } from '../hooks/CartContext';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 // --- Reusable Debounce Hook ---
 // This hook prevents the API from being called on every single keystroke.

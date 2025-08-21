@@ -14,7 +14,7 @@ import { useCart } from '../hooks/CartContext';
 import { ShoppingCart } from 'lucide-react';
 
 // const API_URL = "http://localhost:5000";
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 // This hook prevents API calls on every keystroke.
 function useDebounce(value, delay) {

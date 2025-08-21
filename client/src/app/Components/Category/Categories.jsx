@@ -10,7 +10,7 @@ import { useWishlist } from '@/app/hooks/WishlistContext.jsx';
 import { useAuthAction } from '@/app/hooks/useAuthAction';
 
 const ITEMS_PER_PAGE = 12;
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 // --- Reusable Components ---
 const Spinner = () => (

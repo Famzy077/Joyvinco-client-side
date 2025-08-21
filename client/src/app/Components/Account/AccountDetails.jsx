@@ -8,7 +8,7 @@ import { Loader } from 'lucide-react'; // Loader is from lucide-react
 import { FaPen } from 'react-icons/fa'; // FaPen is from react-icons
 import { Textarea } from '@/components/ui/textarea';
 
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 // Updated to fetch email as well
 const fetchUserDetails = async () => {

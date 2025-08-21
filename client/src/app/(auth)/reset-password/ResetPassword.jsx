@@ -27,7 +27,7 @@ const ResetPasswordPage = () => {
   }, [token]);
 
   const handleSubmit = async (e) => {
-    const API_URL = "https://Joyvinco-server-0.onrender.com";
+    const API_URL = "https://joyvinco.onrender.com";
     e.preventDefault();
     if (newPassword !== confirmPassword) {
       setError("Passwords do not match.");

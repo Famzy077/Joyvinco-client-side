@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ProductCard from '@/app/Components/ProductsCard'
 import { AddToCartButton } from './cart/AddToCartButton';
 // --- Data Fetching Function ---
-const API_URL = "https://Joyvinco-server-0.onrender.com";
+const API_URL = "https://joyvinco.onrender.com";
 
 const fetchAllProducts = async () => {
   const res = await axios.get(`${API_URL}/api/products`);

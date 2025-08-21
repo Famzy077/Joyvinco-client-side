@@ -8,7 +8,7 @@ import logo from '/public/Images/logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import * as yup from 'yup';
 
-const apiBase = 'https://Joyvinco-server-0.onrender.com/api'; 
+const apiBase = 'https://joyvinco.onrender.com/api'; 
 
 // Yup validation schema
 const schema = yup.object().shape({

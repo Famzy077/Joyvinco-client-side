@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
-const url = "https://Joyvinco-server-0.onrender.com";
+const url = "https://joyvinco.onrender.com";
 const fetchUsers = async () => {
     const token = localStorage.getItem('authToken');
     const res = await axios.get(`${url}/api/admin/users`, {

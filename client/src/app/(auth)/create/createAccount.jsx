@@ -38,7 +38,7 @@ const CreateAccount = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const api = axios.create({
-    baseURL: 'https://Joyvinco-server-0.onrender.com',
+    baseURL: 'https://joyvinco.onrender.com',
     timeout: 10000,
     headers: { 'Content-Type': 'application/json' }
   });
