@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   res.send(html);
 // });
 
-const allowedOrigins = ['http://localhost:3000', 'https://favourite-plug.vercel.app'];
+const allowedOrigins = ['http://localhost:3000', 'https://www.joyvinco.com.ng'];
 
 const corsOptions = {
   origin: function (origin, callback) {

@@ -169,7 +169,7 @@ const createAccount = async (req, res) => {
       user: user
     });
 
-    console.log('Account created:', user);
+    // console.log('Account created:', user);
 
   } catch (error) {
     console.error('Account creation error:', error)

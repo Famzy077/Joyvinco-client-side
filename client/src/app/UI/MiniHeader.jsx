@@ -143,7 +143,7 @@ export const MiniHeader = () => {
             </div>
           )}
           {!isLoading && debouncedQuery && results?.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-6">
+            <div className="flex overflow-y-hidden border-2 border-red-500 flex-col items-center justify-center py-6">
               <Image
                 src={NoItemImage}
                 alt="No products found"

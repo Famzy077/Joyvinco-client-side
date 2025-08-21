@@ -8,7 +8,7 @@ import logo from '/public/Images/logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import * as yup from 'yup';
 
-const apiBase = 'https://joyvinco.onrender.com/api'; 
+const apiBase = 'https://joyvinco.onrender.com/api';
 
 // Yup validation schema
 const schema = yup.object().shape({
@@ -71,7 +71,7 @@ const Login = () => {
       <Image src={logo} alt="Joyvinco Logo" width={60} height={60} />
       <h2 className="text-xl font-semibold mt-4">Welcome to Joyvinco</h2>
       <p className="text-sm text-center text-gray-600 mb-6">
-        Type your e-mail or phone number to log in or create an account.
+        Type your e-mail to log in or create an account.
       </p>
 
       <form onSubmit={handleSubmit} className="w-full max-w-sm">
@@ -86,7 +86,7 @@ const Login = () => {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full bg-blue-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-blue-600 transition ${
+          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-green-600 transition ${
             loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
           }`}
         >
@@ -108,7 +108,9 @@ const Login = () => {
 
       <p className="text-xs text-gray-500 mb-4">
         By continuing you agree to Joyvinco’s{' '}
-        <span className="underline cursor-pointer text-blue-500">Terms and Conditions</span>
+      <Link href="/terms" className="text-green-500 hover:underline">
+        <span className="underline cursor-pointer text-green-500">Terms and Conditions</span>
+      </Link>
       </p>
 
       <button className="w-full max-w-sm border flex items-center justify-center gap-2 py-2 rounded-md shadow-sm text-sm">

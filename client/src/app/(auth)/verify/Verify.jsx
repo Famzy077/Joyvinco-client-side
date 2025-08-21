@@ -192,7 +192,7 @@ const VerifyEmail = () => {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-blue-600 transition ${
+          className={`w-full bg-green-500 text-white py-3 px-6 rounded-md shadow-md hover:bg-green-600 transition ${
             loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
           }`}
         >
@@ -209,11 +209,11 @@ const VerifyEmail = () => {
 
       <p className="text-sm text-gray-600 mt-4">
         {loading && !canResend ? (
-          <span className="text-blue-400">Resending...</span>
+          <span className="text-green-400">Resending...</span>
         ) : canResend ? (
           <button
             onClick={resendCode}
-            className="text-green-500 hover:text-blue-700 font-medium"
+            className="text-green-500 hover:text-green-700 font-medium"
             disabled={loading}
           >
             Resend Verification Code

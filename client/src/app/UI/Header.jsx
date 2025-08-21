@@ -177,7 +177,7 @@ export const MobileBottomNav = () => {
   ];
 
   return (
-    <div className="sticky bottom-0 left-0 right-0 z-[100] block md:hidden bg-white border-t border-gray-200">
+    <div className="sticky bottom-0 left-0 right-0 z-[100] block md:hidden bg-green-100 border-t border-gray-200">
       <main className="flex justify-around items-center px-4 py-3">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
@@ -187,7 +187,7 @@ export const MobileBottomNav = () => {
             <Link href={item.href} key={item.label}>
               <div
                 className={`flex flex-col items-center text-xs transition-all duration-200 ${
-                  isActive ? 'text-blue-600 scale-110' : 'text-gray-500'
+                  isActive ? 'text-green-600 scale-110' : 'text-gray-500'
                 } ${isCategories ? 'border border-green-500 rounded-md px-2 py-1' : ''}`}
               >
                 {React.cloneElement(item.icon, { size: 24 })}
