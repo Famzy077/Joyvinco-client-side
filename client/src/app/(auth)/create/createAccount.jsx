@@ -266,7 +266,7 @@ const CreateAccount = () => {
 
       {/* Email Edit Modal */}
       {isEditingEmail && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/85 bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white p-6 rounded-md w-full max-w-sm">
             <h3 className="text-lg font-medium mb-4">Edit Email</h3>
             <input

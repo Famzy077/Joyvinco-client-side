@@ -211,7 +211,7 @@ const VerifyEmail = () => {
         {loading && !canResend ? (
           <span className="text-green-400">Resending...</span>
         ) : canResend ? (
-          <button
+          <button type='button'
             onClick={resendCode}
             className="text-green-500 hover:text-green-700 font-medium"
             disabled={loading}
