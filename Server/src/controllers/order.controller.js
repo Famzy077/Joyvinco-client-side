@@ -98,19 +98,21 @@ const updateOrderStatus = async (req, res) => {
     const { status } = req.body;
 
     if (!status) {
-        return res.status(400).json({ success: false, message: "Status is required." });
+      return res.status(400).json({ success: false, message: "Status is required." });
     }
 
     const updatedOrder = await prisma.order.update({
-        where: { id },
-        data: { status }
+      where: { id },
+      data: { status }
     });
 
-    // --- EMAIL NOTIFICATION ---
+    // --- UPDATED LOGIC: Handle all status changes ---
     if (updatedOrder.status === 'SHIPPED') {
       sendShippingConfirmationEmail(updatedOrder);
     } else if (updatedOrder.status === 'DELIVERED') {
       sendDeliveryConfirmationEmail(updatedOrder);
+    } else if (updatedOrder.status === 'CANCELLED') {
+      sendCancellationEmail(updatedOrder);
     }
 
     res.status(200).json({ success: true, message: `Order status updated to ${status}.`, data: updatedOrder });
@@ -119,8 +121,6 @@ const updateOrderStatus = async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 };
-
-
 
 module.exports = {
   createOrder,

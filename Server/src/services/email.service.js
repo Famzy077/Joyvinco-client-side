@@ -78,6 +78,7 @@ const sendShippingConfirmationEmail = async (order) => {
     }
 };
 
+
 /**
  * Sends a delivery confirmation email to the customer.
  * @param {object} order - The order object that has been updated to "DELIVERED".
@@ -101,8 +102,35 @@ const sendDeliveryConfirmationEmail = async (order) => {
     }
 };
 
+/**
+ * --- NEW ---
+ * Sends an order cancellation email to the customer.
+ * @param {object} order - The order object that has been updated to "CANCELLED".
+ */
+const sendCancellationEmail = async (order) => {
+    try {
+        const customer = await prisma.user.findUnique({ where: { id: order.userId } });
+        if (!customer) throw new Error('Customer not found for cancellation email.');
+
+        const templatePath = path.resolve(process.cwd(), 'src/views/customer-cancelled-notification.ejs');
+        const emailHtml = await ejs.renderFile(templatePath, { order, customer });
+
+        await transporter.sendMail({
+            from: `"Favorite Plug" <${process.env.EMAIL_USER}>`,
+            to: customer.email,
+            subject: `Your Favorite Plug Order #${order.id.slice(-6)} Has Been Cancelled`,
+            html: emailHtml,
+        });
+    } catch (error) {
+        console.error("--- Failed to send CANCELLED notification email ---", error);
+    }
+};
+
+
+// --- THE FIX: Add the missing functions to the export list ---
 module.exports = {
     sendNewOrderEmails,
     sendShippingConfirmationEmail,
     sendDeliveryConfirmationEmail,
+    sendCancellationEmail,
 };
