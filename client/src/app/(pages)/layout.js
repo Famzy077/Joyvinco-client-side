@@ -66,20 +66,18 @@ export default function PageLayout({ children }) {
           <PageProvider>
 
             <HeaderPage />
-            <div className="">
-    
-              <Script type="text/javascript">
-                {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-                (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/6862754f47ce5c1911cb02ca/1iv0ded7u';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-                })();`}
-              </Script>
-            </div>
+            <Script type="text/javascript">
+              {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/68a8a77b166cf5192761818e/1j39cseq7';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+              })();`}
+            </Script>
+
             {children}
             <MobileBottomNav />
             <Footer />
