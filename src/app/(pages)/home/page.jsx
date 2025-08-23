@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Section from '@/app/Components/Home/SlidedSection';
 import { Call, CallPhone } from '@/app/UI/Call';
 import { ProductBaner, ProductBanerTwo} from '@/app/Components/Home/ProductBaner';
-import { VivaSanitizer } from '@/app/Components/VivaSanitizer';
+import { VivaBar } from '@/app/Components/VivaBar';
 import { Toothpaste } from '@/app/Components/Toothpaste';
-import { VivaBar} from '@/app/Components/VivaBar';
+import { LiquidSoap} from '@/app/Components/Liquid';
 import {Viva } from '@/app/Components/Viva';
 import { Detergents } from '@/app/Components/Detergents';
 import Link from 'next/link';
@@ -39,31 +39,42 @@ const Page = () => {
       
       <hr className='my-5' />
       <CallPhone />
-      <div className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
-      {/* <Viva products /> */}
-        <h1>Viva Products </h1>
-        <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+      <div>
+        <div className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+          <h1>Viva Products </h1>
+          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+        </div>
+        <Viva />
       </div>
-      <Viva />
 
       <ProductBaner />
-      <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 my-6 items-center">
-        Viva Sanitizer
-        <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
-      </h1>
-      <VivaSanitizer />
-      <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
-        Viva Bar
-        <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
-      </h1>
-      < VivaBar />
+
+      <div>
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 my-6 items-center">
+          Viva Bar
+          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+        </h1>
+        <VivaBar />
+      </div>
+
+      <div>
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+          Liquid Soap
+          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+        </h1>
+        < LiquidSoap />
+      </div>
+
       <ProductBanerTwo />
-      {/* Toothpaste */}
-      <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
-        Toothpaste
-        <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
-      </h1>
-      <Toothpaste />
+      
+      <div>
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+          Toothpaste
+          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+        </h1>
+        <Toothpaste />
+      </div>
+
       <div>
         <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
           All Items...
