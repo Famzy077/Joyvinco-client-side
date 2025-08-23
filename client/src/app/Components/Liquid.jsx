@@ -56,14 +56,14 @@ const ProductCard = ({ product }) => {
 };
 
 // --- Main Component for the Latops Category Section (Now with Slider) ---
-export const VivaSanitizer = () => {
+export const LiquidSoap = () => {
   const { data: allProducts, isLoading, error } = useQuery({
     queryKey: ['publicProducts'],
     queryFn: fetchAllProducts,
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "vivaSanitizer" 
+    (product) => product.category === "VivaBar"
   );
   
 
@@ -71,7 +71,7 @@ export const VivaSanitizer = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 4000,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 2,
@@ -107,7 +107,7 @@ export const VivaSanitizer = () => {
   if (isLoading) {
     return (
       <div className='flex items-center justify-center min-h-[40vh]'>
-        <FaSpinner className="animate-spin text-green-500" size={32} /> 
+        <FaSpinner className="animate-spin text-green-500" size={32} />
       </div>
     );
   }
@@ -115,7 +115,7 @@ export const VivaSanitizer = () => {
   if (error) {
     return (
       <div className="text-center py-10">
-        <p className="text-red-500">Failed to load Viva Sanitizer products.</p>
+        <p className="text-red-500">Failed to load Viva Bar products.</p>
       </div>
     );
   }
@@ -133,7 +133,7 @@ export const VivaSanitizer = () => {
         </Slider>
       ) : (
         <div className="text-center py-10 text-gray-500">
-          <p>No Viva Sanitizer found at the moment.</p>
+          <p>No Liquid Soap found at the moment.</p>
         </div>
       )}
     </div>

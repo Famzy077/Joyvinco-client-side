@@ -13,7 +13,7 @@ export const Call = () => {
 export const CallPhone = () => {
   return(
     <div className='bg-pink-200 p-2 hidden max-sm:block text-center font-medium mt-6'>
-      <h1 >Call to order 09123882828</h1>
+      <h1 >Call to order 09069905126</h1>
     </div>
   )
 }

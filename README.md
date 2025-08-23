@@ -1,29 +1,59 @@
-JoyVinco Detergent Distributor
-Welcome to JoyVinco, your trusted source for high-quality detergents and cleaning products. We offer a diverse range of items to meet all your cleaning needs.
+# 🛍️ 💻📱 Joyvinco
 
-Our Products
-Viva Green: Washing powder that effectively cleanses your clothes.
-Fizz Soap: Bathing soap with an extra great fragrance.
-Viva Plus Sanitizer: Washing powder that cleanses clothes, protects their color, and whitens white garments.
-Oracare: Complete protection for your teeth.
-Fizz Detergent: Powder detergent for effective cleaning.
-Viva Dishwash: Dishwashing liquid for sparkling dishes.
-Viva Gold: Detergent infused with luxury perfumes for a rich scent.
-Fizz Green Soap: Soap with a modern twist of luxury perfumes.
-Biotol Soap: Soap with natural perfumes for a rich scent.
-Siri Soap: Soap with luxury perfumes for a luscious scent.
-Viva White Soap: Multipurpose bar soap made from the finest ingredients.
-Viva Lemon Soap: Multipurpose bar soap with a refreshing lemon scent.
-Oracare Toothpaste: Toothpaste for complete oral care.
-FiZZ Detergent: Detergent for effective cleaning.
-Biotol Bath Soap: Bath soap with natural perfumes.
-Why Choose Us?
-Free Shipping: Enjoy free shipping on all orders.
-Secure Payment: 100% secure payment options.
-30 Days Return: 30-day money-back guarantee.
-24/7 Support: Fast and reliable customer support.
-Contact Us
-For inquiries or to place an order, please visit our website or reach out to us via WhatsApp.
+**Joyvinco** is a modern, responsive e-commerce platform focused on delivering tech gadgets and accessories with a clean and intuitive shopping experience.
 
-Note: Replace the WhatsApp link with your actual contact number.# Joyvinco-Ventures
-# Joyvinco-Ventures
+🔗 **Live Demo**: [https://joyvinco.com.ng](https://joyvinco.com.ng)
+
+---
+
+## ✨ Features
+
+- 🏠 Home page showcasing trending and featured gadgets  
+- 🔍 Real-time product search with suggestions  
+- 📂 Product categories for easy filtering  
+- ❤️ Wishlist functionality using `localStorage`  
+- 👤 Account management page (with planned auth integration)  
+- 🛒 Multi-step checkout & CRUD-ready cart (coming soon)  
+- 📱 Responsive design for mobile and desktop  
+- 🌐 SEO-friendly routing with Next.js  
+
+---
+
+## ⚙️ Tech Stack
+
+| Technology     | Purpose                          |
+|----------------|----------------------------------|
+| **Next.js**    | React framework for SSR & routing |
+| **React**      | UI component structure           |
+| **JavaScript** | Strongly typed frontend logic    |
+| **Tailwind CSS** | Utility-first responsive design |
+| **Lucide Icons** | Icon set used for UI elements   |
+| **Node.js (Planned)** | Backend API integration (auth, admin, etc.) |
+| **MongoDB (Planned)** | Product & order database backend |
+| **Vercel**     | Deployment platform              |
+
+---
+
+## 🚧 In Progress
+
+- 🔐 Google authentication and email verification  
+- 🧾 Order placement & payment integration  
+- 🛒 Shopping cart with local + backend syncing  
+- 🧩 Admin dashboard for inventory control  
+- 📨 Newsletter & email marketing integration  
+
+---
+
+## 📁 Project Structure
+
+```bash
+📦 Joyvinco/
+├── public/               # Images and static assets
+├── src/
+│   ├── app/              # Pages & routes (Next.js)
+│   ├── components/       # Reusable UI components (Navbar, Header, etc.)
+│   ├── data/             # Local JSON files for mock products
+│   ├── styles/           # Tailwind CSS and global styles
+│   └── hooks/            # Utilities (API, custom hooks, etc.)
+├── package.json
+└── README.md

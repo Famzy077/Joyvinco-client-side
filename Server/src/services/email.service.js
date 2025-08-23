@@ -92,9 +92,9 @@ const sendDeliveryConfirmationEmail = async (order) => {
         const emailHtml = await ejs.renderFile(templatePath, { order, customer });
 
         await transporter.sendMail({
-            from: `"Favorite Plug" <${process.env.EMAIL_USER}>`,
+            from: `"Joyvinco" <${process.env.EMAIL_USER}>`,
             to: customer.email,
-            subject: `Your Favorite Plug Order #${order.id.slice(-6)} Has Been Delivered!`,
+            subject: `Your Joyvinco Order #${order.id.slice(-6)} Has Been Delivered!`,
             html: emailHtml,
         });
     } catch (error) {
@@ -116,9 +116,9 @@ const sendCancellationEmail = async (order) => {
         const emailHtml = await ejs.renderFile(templatePath, { order, customer });
 
         await transporter.sendMail({
-            from: `"Favorite Plug" <${process.env.EMAIL_USER}>`,
+            from: `"Joyvinco" <${process.env.EMAIL_USER}>`,
             to: customer.email,
-            subject: `Your Favorite Plug Order #${order.id.slice(-6)} Has Been Cancelled`,
+            subject: `Your Joyvinco Order #${order.id.slice(-6)} Has Been Cancelled`,
             html: emailHtml,
         });
     } catch (error) {

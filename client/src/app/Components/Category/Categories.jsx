@@ -57,7 +57,7 @@ const ProductCard = ({ product, onWishlistToggle, isWishlisted }) => {
   );
 };
 
-// --- Data Fetching Function ---
+// Data Fetching Function
 const fetchAllProducts = async () => {
   const res = await axios.get(`${API_URL}/api/products`);
   // console.log(res.data.data)
@@ -65,7 +65,7 @@ const fetchAllProducts = async () => {
   
 };
 
-// --- Main Categories Page Component ---
+// Main Categories Page Component
 const Categories = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -118,7 +118,7 @@ const Categories = () => {
         {/* Filter Buttons */}
         <div className="max-sm:px-0 p-3">
           <div className="grid max-sm:w-[5rem] max-sm:h-[20rem] h-[30rem] ml-3 w-[10rem] max-sm:grid-cols-1 my-3 gap-4">
-            {['All', 'Smartphones', 'Tablets', 'Laptops', 'PowerBanks', 'Accessories'].map((cat) => (
+            {['All', 'Viva Plus', 'Viva Bar', 'Liquid Soap', 'Toothpase', 'Rafa'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => handleFilter(cat)}

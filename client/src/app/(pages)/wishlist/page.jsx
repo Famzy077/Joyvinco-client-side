@@ -36,7 +36,7 @@ const WishlistPage = () => {
         <p className="text-2xl mb-4">You have no items in your wishlist yet 💔</p>
         <Link href="/categories">
           <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors">
-              Start Exploring
+            Start Exploring
           </button>
         </Link>
       </div>
@@ -44,8 +44,8 @@ const WishlistPage = () => {
   }
 
   return (
-    <div>
-      <div className="lg:px-20 bg-zinc-100 p-5 max-sm:px-5 min-h-">
+    <div className=' bg-zinc-100 max-sm:h-screen'>
+      <div className="lg:px-20 overflow-y-scroll bg-zinc-100 p-5 max-sm:px-5">
         <h1 className="text-4xl mb-6 max-sm:text-2xl font-medium font-sans">Your Wishlist</h1>
         <div className="grid max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-14">
           {wishlist.map((product) => {
@@ -81,15 +81,17 @@ const WishlistPage = () => {
           })}
         </div>
         
-        <div className="text-center flex max-sm:flex-col justify-center rounded-[10px] w-auto gap-4">
+        <div className="text-center flex max-sm:flex-col justify-center rounded-[10px] w-auto gap-4 max-sm:pb-10">
           <div className='flex gap-2.5 items-center border-green-500 border w-[300px] max-sm:w-[100%] justify-center p-2 rounded-[5px]'>
             <p className="text-gray-800 text-xl font-semibold">Total Price =</p>
             <p className="text-xl font-bold text-gray-600">₦{totalPrice.toLocaleString()}</p>
           </div>
-          <button className='text-xl max-sm:w-[100%] max-sm:text-[14px] border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-green-600 py-1.5 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
+          <a href="tel:+2349069905126">
+            <button className='text-xl w-full max-sm:text-[14px] border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-green-600 py-1.5 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
               <Phone className="max-sm:text-sm" size={28}/>
               Call to order
             </button>
+          </a>
         </div>
       </div>
       <Docs />

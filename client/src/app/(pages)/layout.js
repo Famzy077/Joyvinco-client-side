@@ -59,6 +59,7 @@ export default function PageLayout({ children }) {
             gtag('config', 'G-XG3M5YQVQH');
           `}
         </Script>
+        <meta name="google-site-verification" content="gLUrj26p_qj-dcKl74HmuwhAcCTq6uHKg6fVXk3Z12U" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           

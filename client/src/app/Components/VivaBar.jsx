@@ -63,7 +63,7 @@ export const VivaBar = () => {
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "VivaBar"
+    (product) => product.category === "vivaSanitizer" 
   );
   
 
@@ -71,7 +71,7 @@ export const VivaBar = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2500,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 2,
@@ -107,7 +107,7 @@ export const VivaBar = () => {
   if (isLoading) {
     return (
       <div className='flex items-center justify-center min-h-[40vh]'>
-        <FaSpinner className="animate-spin text-green-500" size={32} />
+        <FaSpinner className="animate-spin text-green-500" size={32} /> 
       </div>
     );
   }
@@ -115,7 +115,7 @@ export const VivaBar = () => {
   if (error) {
     return (
       <div className="text-center py-10">
-        <p className="text-red-500">Failed to load Viva Bar products.</p>
+        <p className="text-red-500">Failed to load Viva Sanitizer products.</p>
       </div>
     );
   }
@@ -133,7 +133,7 @@ export const VivaBar = () => {
         </Slider>
       ) : (
         <div className="text-center py-10 text-gray-500">
-          <p>No mobile Viva Bar found at the moment.</p>
+          <p>No Viva Sanitizer found at the moment.</p>
         </div>
       )}
     </div>
