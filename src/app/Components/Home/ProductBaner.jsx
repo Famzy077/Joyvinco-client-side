@@ -18,13 +18,13 @@ export const ProductBanerTwo = () => {
   return (
     <div className='flex'>
       <Image src={SectionWatchTwo} className='relative w-[100%] h-[59vh] max-sm:h-[28vh] object-fit lg:h-[87vh]' alt='banner-image' />
-      <div className='absolute place-content-center left-0 mt-20 max-sm:pt-16 h-[59vh] max-sm:h-[28vh] object-fit lg:h-[87vh] pl-6 max-sm:pr-3 w-[50%]'>
-        <Link href={'/categories'}>
-          <button className='bg-zinc-100 px-10 py-4 rounded-[14px] cursor-pointer'>
+      {/* <div className='absolute max-sm:hidden place-content-center left-0 mt-20 max-sm:pt-16 h-[59vh] max-sm:h-[28vh] object-fit lg:h-[87vh] pl-6 max-sm:pr-3 w-[50%]'>
+        <Link className='max-sm:hidden' href={'/categories'}>
+          <button className='bg-zinc-100 max-sm:hidden px-10 py-4 rounded-[14px] cursor-pointer'>
             Shop Now
           </button>
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }
