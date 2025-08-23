@@ -63,7 +63,7 @@ export const LiquidSoap = () => {
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "VivaBar"
+    (product) => product.category === "Liquid Soap"
   );
   
 
