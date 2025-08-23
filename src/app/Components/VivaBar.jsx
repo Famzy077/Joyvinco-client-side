@@ -63,7 +63,7 @@ export const VivaBar = () => {
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "vivaSanitizer" 
+    (product) => product.category === "Viva Bar" 
   );
   
 
