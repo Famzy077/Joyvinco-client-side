@@ -66,7 +66,7 @@ export const Viva = () => {
   });
 
   const mobileProducts = allProducts?.filter(
-    (product) => product.category === "viva"
+    (product) => product.category === "Viva Plus"
   );
   
   // These are the exact slider settings you provided
