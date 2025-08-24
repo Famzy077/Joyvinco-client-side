@@ -192,7 +192,7 @@ const ProductPage = ({ params }) => {
                 <AddToCartButton productId={product.id} />
               </div>
               <p className='text-center text-sm font-semibold'>OR</p>
-              <a href="tel:+2348123456789">
+              <a href="tel:+2349069905126">
                 <button className='w-full text-lg max-sm:text-base border border-green-500 text-white rounded-[5px] bg-green-500 hover:bg-green-600 py-2 px-6 cursor-pointer font-semibold transition-colors flex gap-2 items-center justify-center'>
                   <Phone size={24}/>
                   Call to order
