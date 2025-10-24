@@ -21,7 +21,7 @@ export const AccountWishlist = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center p-5 min-h-[50vh]">
-        <FaSpinner className="animate-spin text-green-500" size={32}/> 
+        <FaSpinner className="text-green-500 animate-spin" size={32}/> 
       </div>
     );
   }
@@ -33,9 +33,9 @@ export const AccountWishlist = () => {
   if (!wishlist || wishlist.length === 0) {
     return (
       <div className="p-5 text-center h-[85vh] flex flex-col items-center justify-center">
-        <p className="text-2xl mb-4">You have no items in your wishlist yet 💔</p>
+        <p className="mb-4 text-2xl">You have no items in your wishlist yet 💔</p>
         <Link href="/categories">
-          <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+          <button className="px-6 py-2 font-semibold text-white transition-colors bg-green-500 rounded-lg hover:bg-green-600">
             Start Exploring
           </button>
         </Link>
@@ -45,16 +45,16 @@ export const AccountWishlist = () => {
 
   return (
     <div>
-      <div className="bg-zinc-50 p-5 flex flex-col max-sm:px-3 rounded-xl">
-        <h1 className="text-2xl mb-6 max-sm:text-xl font-semibold">Your Wishlist</h1>
-        <div className="grid max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="flex flex-col p-5 bg-zinc-50 max-sm:px-3 rounded-xl">
+        <h1 className="mb-6 text-2xl font-semibold max-sm:text-xl">Your Wishlist</h1>
+        <div className="grid gap-4 max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {wishlist.map((product) => {
             if (!product) return null;
 
             const displayImage = product.images?.[0]?.url || '/Images/placeholder.png';
 
             return (
-              <div key={product.id} className="relative group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div key={product.id} className="relative transition-shadow duration-300 bg-white rounded-lg shadow-md group hover:shadow-lg">
                 <button
                   onClick={() => handleRemoveFromWishlist(product.id, product.name)}
                   className="absolute text-xl bg-white rounded-full p-1.5 top-2 right-2 text-red-500 z-10 shadow-sm"
@@ -63,20 +63,20 @@ export const AccountWishlist = () => {
                 </button>
 
                 <Link href={`/products/${product.id}`} className="flex flex-col h-full">
-                  <div className="flex-grow flex flex-col p-2">
-                    <div className="h-40 flex items-center justify-center">
+                  <div className="flex flex-col flex-grow p-2">
+                    <div className="flex items-center justify-center h-40">
                       <Image
                         src={displayImage}
                         height={120}
                         width={120}
                         alt={product.name}
-                        className="max-h-full w-auto object-contain"
+                        className="object-contain w-auto max-h-full"
                       />
                     </div>
-                    <div className="text-center mt-2 flex-grow flex flex-col justify-between">
+                    <div className="flex flex-col justify-between flex-grow mt-2 text-center">
                       <div>
                         <h1 className="text-sm font-semibold truncate">{product.name}</h1>
-                        <p className="font-bold text-base mt-1">₦{product.price.toLocaleString()}</p>
+                        <p className="mt-1 text-base font-bold">₦{product.price.toLocaleString()}</p>
                       </div>
                       <div className="mt-2">
                         <AddToCartButton productId={product.id} />

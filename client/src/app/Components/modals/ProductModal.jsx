@@ -142,31 +142,31 @@
 
 //           <form onSubmit={handleSubmit} className="pr-2">
 //             <div className="grid gap-4 py-4 max-sm:px-0">
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="name" className="text-right max-sm:text-[0.8rem]">Name</Label>
 //                 <Input id="name" value={productName} onChange={(e) => setProductName(e.target.value)} className="col-span-3" required />
 //               </div>
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="category" className="text-right max-sm:text-[0.8rem]">Category</Label>
 //                 <Input id="category" value={category} onChange={(e) => setCategory(e.target.value)} className="col-span-3" required />
 //               </div>
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="description" className="text-right max-sm:text-[0.8rem]">Description</Label>
 //                 <Textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="col-span-3" />
 //               </div>
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="price" className="text-right max-sm:text-[0.8rem]">Price (₦)</Label>
 //                 <Input id="price" type="number" value={price} onChange={(e) => setPrice(e.target.value)} className="col-span-3" required />
 //               </div>
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="oldPrice" className="text-right max-sm:text-[0.8rem]">Old Price (₦)</Label>
 //                 <Input id="oldPrice" type="number" value={oldPrice} onChange={(e) => setOldPrice(e.target.value)} className="col-span-3" />
 //               </div>
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="quantity" className="text-right max-sm:text-[0.8rem]">Quantity</Label>
 //                 <Input id="quantity" type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="col-span-3" />
 //               </div>
-//               <div className="grid grid-cols-4 items-center gap-4">
+//               <div className="grid items-center grid-cols-4 gap-4">
 //                 <Label htmlFor="pictures" className="text-right">Images</Label>
 //                 <Input 
 //                   id="pictures" 
@@ -180,12 +180,12 @@
               
 //               {/* --- UPDATED: Image preview section --- */}
 //               {previewUrls.length > 0 && (
-//                 <div className="grid grid-cols-4 gap-4 items-start">
-//                     <Label className="text-right pt-2">Previews</Label>
-//                     <div className="col-span-3 grid grid-cols-3 gap-2">
+//                 <div className="grid items-start grid-cols-4 gap-4">
+//                     <Label className="pt-2 text-right">Previews</Label>
+//                     <div className="grid grid-cols-3 col-span-3 gap-2">
 //                       {previewUrls.map((url, index) => (
 //                           <div key={index} className="relative">
-//                               <img src={url} alt={`Preview ${index + 1}`} className="h-24 w-24 object-cover rounded-md border" />
+//                               <img src={url} alt={`Preview ${index + 1}`} className="object-cover w-24 h-24 border rounded-md" />
 //                               {/* --- NEW: The remove button for each image --- */}
 //                               <button
 //                                   type="button" // Important to prevent form submission
@@ -193,7 +193,7 @@
 //                                   className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full p-0.5 hover:bg-red-700 transition-colors"
 //                                   title="Remove image"
 //                               >
-//                                   <XIcon className="h-4 w-4" />
+//                                   <XIcon className="w-4 h-4" />
 //                               </button>
 //                           </div>
 //                       ))}
@@ -232,7 +232,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { XIcon, GripVertical } from 'lucide-react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
 
 // --- NEW: A special wrapper to fix the React 18 Strict Mode issue ---
 const StrictModeDroppable = ({ children, ...props }) => {
@@ -383,38 +383,38 @@ export const ProductModal = ({ productToEdit = null, isOpen, onClose }) => {
 
                     <form onSubmit={handleSubmit} className="pr-2">
                         <div className="grid gap-4 py-4 max-sm:px-0">
-                          <div className="grid grid-cols-4 items-center gap-4">
+                          <div className="grid items-center grid-cols-4 gap-4">
                             <Label htmlFor="name" className="text-right max-sm:text-[0.8rem]">Name</Label>
                             <Input id="name" value={productName} onChange={(e) => setProductName(e.target.value)} className="col-span-3" required />
                           </div>
-                          <div className="grid grid-cols-4 items-center gap-4">
+                          <div className="grid items-center grid-cols-4 gap-4">
                             <Label htmlFor="category" className="text-right max-sm:text-[0.8rem]">Category</Label>
                             <Input id="category" value={category} onChange={(e) => setCategory(e.target.value)} className="col-span-3" required />
                           </div>
-                          <div className="grid grid-cols-4 items-center gap-4">
+                          <div className="grid items-center grid-cols-4 gap-4">
                             <Label htmlFor="description" className="text-right max-sm:text-[0.8rem]">Description</Label>
                             <Textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="col-span-3" />
                           </div>
-                          <div className="grid grid-cols-4 items-center gap-4">
+                          <div className="grid items-center grid-cols-4 gap-4">
                             <Label htmlFor="price" className="text-right max-sm:text-[0.8rem]">Price (₦)</Label>
                             <Input id="price" type="number" value={price} onChange={(e) => setPrice(e.target.value)} className="col-span-3" required />
                           </div>
-                          <div className="grid grid-cols-4 items-center gap-4">
+                          <div className="grid items-center grid-cols-4 gap-4">
                             <Label htmlFor="oldPrice" className="text-right max-sm:text-[0.8rem]">Old Price (₦)</Label>
                             <Input id="oldPrice" type="number" value={oldPrice} onChange={(e) => setOldPrice(e.target.value)} className="col-span-3" />
                           </div>
-                          <div className="grid grid-cols-4 items-center gap-4">
+                          <div className="grid items-center grid-cols-4 gap-4">
                             <Label htmlFor="quantity" className="text-right max-sm:text-[0.8rem]">Quantity</Label>
                             <Input id="quantity" type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="col-span-3" />
                           </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
+                            <div className="grid items-center grid-cols-4 gap-4">
                                 <Label htmlFor="pictures" className="text-right">Images</Label>
                                 <Input id="pictures" type="file" multiple onChange={handleFileChange} className="col-span-3" accept="image/*" />
                             </div>
                             
                             {images.length > 0 && (
-                                <div className="grid grid-cols-4 gap-4 items-start">
-                                    <Label className="text-right pt-2">Previews</Label>
+                                <div className="grid items-start grid-cols-4 gap-4">
+                                    <Label className="pt-2 text-right">Previews</Label>
                                     <DragDropContext onDragEnd={onDragEnd}>
                                         {/* --- THE FIX: Use the new StrictModeDroppable component --- */}
                                         <StrictModeDroppable droppableId="image-previews" direction="horizontal">
@@ -422,7 +422,7 @@ export const ProductModal = ({ productToEdit = null, isOpen, onClose }) => {
                                                 <div 
                                                     {...provided.droppableProps} 
                                                     ref={provided.innerRef} 
-                                                    className="col-span-3 grid grid-cols-3 gap-2"
+                                                    className="grid grid-cols-3 col-span-3 gap-2"
                                                 >
                                                     {images.map((image, index) => (
                                                         <Draggable key={image.id} draggableId={image.id.toString()} index={index}>
@@ -433,17 +433,17 @@ export const ProductModal = ({ productToEdit = null, isOpen, onClose }) => {
                                                                     {...provided.dragHandleProps}
                                                                     className={`relative ${snapshot.isDragging ? 'shadow-lg' : ''}`}
                                                                 >
-                                                                    <img src={image.url} alt={`Preview ${index + 1}`} className="h-24 w-24 object-cover rounded-md border" />
+                                                                    <img src={image.url} alt={`Preview ${index + 1}`} className="object-cover w-24 h-24 border rounded-md" />
                                                                     <button
                                                                         type="button"
                                                                         onClick={() => handleRemoveImage(index)}
                                                                         className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full p-0.5 hover:bg-red-700"
                                                                         title="Remove image"
                                                                     >
-                                                                        <XIcon className="h-4 w-4" />
+                                                                        <XIcon className="w-4 h-4" />
                                                                     </button>
-                                                                    <div className="absolute top-0 left-0 bg-black bg-opacity-50 text-white rounded-tl-md p-1">
-                                                                        <GripVertical className="h-4 w-4" />
+                                                                    <div className="absolute top-0 left-0 p-1 text-white bg-black bg-opacity-50 rounded-tl-md">
+                                                                        <GripVertical className="w-4 h-4" />
                                                                     </div>
                                                                 </div>
                                                             )}

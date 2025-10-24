@@ -31,7 +31,7 @@ const PageProvider = ({ children }) => {
   useEffect(() => {
     const minDelayTimer = setTimeout(() => {
       setMinDelayPassed(true);
-    }, 3000);
+    }, 1500);
 
     const authToken = localStorage.getItem("authToken");
 
@@ -71,7 +71,7 @@ const PageProvider = ({ children }) => {
             className="h-[100px] max-sm:w-[50%] w-[230px]"
             alt="Loading Logo"
           />
-          <FaSpinner className="animate-spin text-green-500" size={40} />
+          <FaSpinner className="text-green-500 animate-spin" size={40} />
         </div>
       ) : (
         <AllProviders>

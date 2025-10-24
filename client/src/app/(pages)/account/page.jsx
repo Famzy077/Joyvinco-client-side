@@ -4,14 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { User, Heart, Ticket, LogOut } from 'lucide-react'; // NEW: Added LogOut icon
+import { User, Heart, Ticket, LogOut } from 'lucide-react';
 
 import { AccountDetails } from "../../Components/Account/AccountDetails";
 import Voucher from "@/app/Components/Account/Voucher"; 
 import { AccountWishlist } from '../../Components/accountWishlist/wishlist';
 
-// --- UPDATED Sidebar Component ---
-// I've recreated your Sidebar here to add the logout functionality.
 const Sidebar = ({ selectedTab, onTabChange, onLogout }) => {
     const tabs = [
         { id: "accountdetails", label: "Account Details", icon: <User /> },
@@ -20,35 +18,35 @@ const Sidebar = ({ selectedTab, onTabChange, onLogout }) => {
     ];
 
     return (
-        <div className="w-64 max-sm:w-24 bg-gray-50 p-4 flex flex-col border-r">
-            <div className="flex-grow">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab.id}
-                        onClick={() => onTabChange(tab.id)}
-                        className={`w-full flex items-center gap-3 p-3 my-1 rounded-lg text-left text-sm font-medium transition-colors ${
-                            selectedTab === tab.id
-                                ? 'bg-green-500 text-white shadow-md'
-                                : 'text-gray-600 hover:bg-green-100'
-                        }`}
-                    >
-                        {tab.icon}
-                        <span className="max-sm:hidden">{tab.label}</span>
-                    </button>
-                ))}
-            </div>
-            {/* --- NEW: Logout Button --- */}
-            <div className="mt-auto">
-                <button
-                    onClick={onLogout}
-                    className="w-full flex items-center gap-3 p-3 my-1 rounded-lg text-left text-sm font-medium text-red-600 hover:bg-red-100 transition-colors"
-                >
-                    <LogOut />
-                    <span className="max-sm:hidden">Logout</span>
-                </button>
-            </div>
+      <div className="flex flex-col w-64 p-4 border-r max-sm:w-24 bg-gray-50">
+        <div className="flex-grow">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => onTabChange(tab.id)}
+                className={`w-full flex items-center gap-3 p-3 my-1 rounded-lg text-left text-sm font-medium transition-colors ${
+                  selectedTab === tab.id
+                    ? 'bg-green-500 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-green-100'
+                }`}
+              >
+                {tab.icon}
+                <span className="max-sm:hidden">{tab.label}</span>
+              </button>
+            ))}
         </div>
-    );
+        
+        <div className="mt-auto">
+          <button
+              onClick={onLogout}
+              className="flex items-center w-full gap-3 p-3 my-1 text-sm font-medium text-left text-red-600 transition-colors rounded-lg hover:bg-red-100"
+          >
+              <LogOut />
+              <span className="max-sm:hidden">Logout</span>
+          </button>
+        </div>
+    </div>
+  );
 };
 
 
@@ -58,21 +56,13 @@ const AccountPage = () => {
   const router = useRouter();
   const queryClient = useQueryClient(); // Get the query client instance
 
-  // --- NEW: Logout Handler Function ---
   const handleLogout = () => {
-    // 1. Show a confirmation alert
     if (window.confirm("Are you sure you want to log out?")) {
-        // 2. Clear the user's authentication token
-        localStorage.removeItem('authToken');
-
-        // 3. Invalidate all queries to clear cached user data (like cart/wishlist)
-        queryClient.invalidateQueries();
-        
-        // 4. Show a success notification
-        toast.success("You have been logged out successfully.");
-
-        // 5. Redirect to the home page
-        router.push('/home');
+      localStorage.removeItem('authToken');
+      queryClient.invalidateQueries();
+      
+      toast.success("You have been logged out successfully.");
+      router.push('/home');
     }
   };
 
@@ -91,17 +81,16 @@ const AccountPage = () => {
 
   return (
     <div>
-      <div className="flex gap-6 max-sm:gap-0 min-h-[77vh]">
+      <div className="flex gap-6 max-sm:gap-0 min-h-[80vh]">
         
-        {/* Pass the handleLogout function as a prop to the Sidebar */}
         <Sidebar
             selectedTab={activeTab} 
             onTabChange={setActiveTab} 
             onLogout={handleLogout} 
         />
         
-        <div className="flex-1 bg-white p-4 rounded shadow">
-          <h1 className="text-3xl max-sm:text-2xl font-semibold py-4">Account Overview</h1>
+        <div className="flex-1 p-4 bg-white rounded shadow">
+          <h1 className="py-4 text-3xl font-semibold max-sm:text-2xl">Account Overview</h1>
           {renderContent()}
         </div>
       </div>
