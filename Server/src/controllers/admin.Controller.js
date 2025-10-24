@@ -29,11 +29,11 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-// --- BLOCK or UNBLOCK a user ---
+// BLOCK or UNBLOCK a user
 const toggleUserBlockStatus = async (req, res) => {
   try {
-    const { id } = req.params; // The ID of the user to block/unblock
-    const adminUserId = req.user.id; // The ID of the admin performing the action
+    const { id } = req.params;
+    const adminUserId = req.user.id;
 
     // Safety check: An admin cannot block themselves
     if (id === adminUserId) {
@@ -66,36 +66,36 @@ const toggleUserBlockStatus = async (req, res) => {
 };
 
 
-// --- GET stats for the dashboard overview ---
+//  GET stats for the dashboard overview ---
 const getDashboardStats = async (req, res) => {
-    try {
-      const totalUsers = await prisma.user.count();
-      const totalProducts = await prisma.product.count();
+  try {
+    const totalUsers = await prisma.user.count();
+    const totalProducts = await prisma.product.count();
 
-      // Calculate the date 30 days ago
-      const thirtyDaysAgo = new Date();
-      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    // Calculate the date 30 days ago
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
-      const userGrowthLast30Days = await prisma.user.count({
-        where: {
-          createdAt: {
-            gte: thirtyDaysAgo, // gte = greater than or equal to
-          }
+    const userGrowthLast30Days = await prisma.user.count({
+      where: {
+        createdAt: {
+          gte: thirtyDaysAgo, // gte = greater than or equal to
         }
-      });
+      }
+    });
 
-      const stats = {
-        totalUsers,
-        totalProducts,
-        userGrowthLast30Days
-      };
+    const stats = {
+      totalUsers,
+      totalProducts,
+      userGrowthLast30Days
+    };
 
-      res.status(200).json({ success: true, data: stats });
+    res.status(200).json({ success: true, data: stats });
 
-    } catch (error) {
-      console.error("Get dashboard stats error:", error);
-      res.status(500).json({ success: false, message: 'Internal server error' });
-    }
+  } catch (error) {
+    console.error("Get dashboard stats error:", error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
 };
 
 

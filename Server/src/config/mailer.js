@@ -1,19 +1,16 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail', // or another SMTP provider
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Email Transporter Error:', error);
-  } else {
-    console.log('Email Transporter Ready');
-  }
-});
+const FROM_EMAIL = 'Joyvinco Plug <noreply@notify.joyvinco.com.ng>'; 
 
-module.exports = transporter;
+// Export both the initialized client and the FROM_EMAIL constant
+module.exports = {
+  resend,
+  FROM_EMAIL
+};
+if (process.env.RESEND_API_KEY) {
+  console.log('Resend client configured successfully.');
+} else {
+  console.error('RESEND_API_KEY environment variable is missing!');
+}

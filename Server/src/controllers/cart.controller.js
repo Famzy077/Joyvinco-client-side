@@ -41,7 +41,7 @@ const getCart = async (req, res) => {
     
     // Calculate total price on the backend
     const total = cart.items.reduce((sum, item) => {
-        return sum + item.product.price * item.quantity;
+      return sum + item.product.price * item.quantity;
     }, 0);
 
     const cartItemsWithImages = cart.items.map(item => ({

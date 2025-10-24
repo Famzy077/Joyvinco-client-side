@@ -1,20 +1,16 @@
-// In src/controllers/product.controller.js
-
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const { cloudinary } = require('../config/cloudinary.config');
 
 // Helper function to add a display image for the frontend
 const addDisplayImage = (product) => {
-    // This function ensures the frontend always has a consistent 'image' property to use.
-    if (product && product.images && product.images.length > 0) {
-        return { ...product, image: product.images[0].url };
-    }
-    // Provide a generic fallback path for products that might not have an image
-    return { ...product, image: '/default-placeholder.png' };
+  if (product && product.images && product.images.length > 0) {
+      return { ...product, image: product.images[0].url };
+  }
+  return { ...product, image: '/default-placeholder.png' };
 };
 
-// --- CREATE a new Product with Multiple Images ---
+// CREATE a new Product with Multiple Images ---
 const createProduct = async (req, res) => {
   try {
     const { name, description, price, oldPrice, quantity, category } = req.body;
