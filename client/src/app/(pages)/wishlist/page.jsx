@@ -43,7 +43,7 @@ const WishlistPage = () => {
   }
 
   return (
-    <div className='bg-zinc-100'>
+    <div className='h-screen bg-zinc-100 sm:h-fit'>
       <div className="p-5 overflow-y-scroll lg:px-20 bg-zinc-100 max-sm:px-5">
         <h1 className="mb-6 font-sans text-4xl font-medium max-sm:text-2xl">Your Wishlist</h1>
         <div className="grid gap-4 max-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mb-14">

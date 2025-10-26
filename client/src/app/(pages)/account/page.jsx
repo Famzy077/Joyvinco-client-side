@@ -81,7 +81,7 @@ const AccountPage = () => {
 
   return (
     <div>
-      <div className="flex gap-6 max-sm:gap-0 min-h-[80vh]">
+      <div className="flex gap-6 max-sm:gap-0 min-h-[85vh]">
         
         <Sidebar
             selectedTab={activeTab} 
