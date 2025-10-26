@@ -14,7 +14,7 @@ import Docs from '../../UI/Docs';
 // Spinner Component
 const Spinner = () => (
   <div className="flex items-center justify-center min-h-[80vh]">
-    <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-12 h-12 border-4 border-green-500 rounded-full border-t-transparent animate-spin"></div>
   </div>
 );
 
@@ -34,15 +34,15 @@ const Page = () => {
 
   return (
     <div className="bg-green-50">
-      <Call />
+      {/* <Call /> */}
       <Section />
       
       <hr className='my-5' />
       <CallPhone />
       <div>
-        <div className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+        <div className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-black bg--100 max-sm:text-xl pl-8 max-sm:mt-5 mt-6 items-center">
           <h1>Viva Products </h1>
-          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+          <Link className='text-sm font-normal text-black' href='/categories'>view all</Link>
         </div>
         <Viva />
       </div>
@@ -50,17 +50,17 @@ const Page = () => {
       <ProductBaner />
 
       <div>
-        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 my-6 items-center">
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-black bg--100 max-sm:text-xl pl-8 max-sm:mt-5 mt-6 items-center">
           Viva Bar
-          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+          <Link className='text-sm font-normal text-black' href='/categories'>view all</Link>
         </h1>
         <VivaBar />
       </div>
 
       <div>
-        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-black bg--100 max-sm:text-xl pl-8 max-sm:mt-5 mt-6 items-center">
           Liquid Soap
-          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+          <Link className='text-sm font-normal text-black' href='/categories'>view all</Link>
         </h1>
         < LiquidSoap />
       </div>
@@ -68,17 +68,17 @@ const Page = () => {
       <ProductBanerTwo />
       
       <div>
-        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-black bg--100 max-sm:text-xl pl-8 max-sm:mt-5 mt-6 items-center">
           Toothpaste
-          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+          <Link className='text-sm font-normal text-black' href='/categories'>view all</Link>
         </h1>
         <Toothpaste />
       </div>
 
       <div>
-        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-white bg-green-500 max-sm:text-xl pl-12 max-sm:mt-5 mt-6 items-center">
+        <h1 className="text-3xl flex justify-between font-bold relative max-sm:mx-0 mx-11.5 p-2 max-sm:rounded-none rounded text-black bg--100 max-sm:text-xl pl-8 max-sm:mt-5 mt-6 items-center">
           All Items...
-          <Link className='text-white font-normal text-sm' href='/categories'>view all</Link>
+          <Link className='text-sm font-normal text-black' href='/categories'>view all</Link>
         </h1>
         <Detergents />
       </div>

@@ -75,7 +75,7 @@ export const ProductCard = ({ product }) => {
         </div>
       </Link>
       {discountPercentage && (
-        <div className="absolute top-2 right-2 bg-red-500 text-white text-xs max-sm:text-[11px] font-bold max-sm:px-[0.3rem] px-2 py-1 rounded-md animate-pulse shadow-lg">
+        <div className="absolute -top-1 right-0 sm:-right-1.5 bg-red-500 text-white text-xs max-sm:text-[11px] font-bold max-sm:px-[0.3rem] px-2.5 py-1.5 rounded-md max-sm:rounded-br-none animate-pulse shadow-lg">
           -{discountPercentage}%
         </div>
       )}
